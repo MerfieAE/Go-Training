@@ -6,4 +6,5 @@ func main() {
 	tasks.TaskOne()
 	tasks.TaskTwo()
 	tasks.TaskThree()
+	tasks.TaskFive()
 }
