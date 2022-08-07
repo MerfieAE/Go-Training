@@ -13,4 +13,6 @@ func main() {
 	tasks.TaskTwenty("snow dog sun")
 	tasks.TaskTwentyThee([]int{1, 2, 3, 4, 5}, 2)
 	tasks.TaskTwentySix("abcdefSAfvd")
+	tasks.TaskTwentyFive()
+	tasks.TaskTwentyFour()
 }
