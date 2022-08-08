@@ -2,7 +2,6 @@ package tasks
 
 import (
 	"fmt"
-	"math/rand"
 	"time"
 )
 
@@ -15,27 +14,28 @@ import (
 	способ завершения работы всех воркеров.
 */
 
-func readFromChanel(chanel chan int) {
-
-	for data := range chanel {
-		fmt.Printf("now data is %d\n", data)
-	}
-}
-
-func writeToChanel(chanel chan int) {
+func worker(workerName int, in <-chan int) {
 	for {
-		data := rand.Intn(100)
-		chanel <- data
+		num := <-in
+		fmt.Printf("Goroutine #%d: value: %ds\n", workerName, num)
 	}
 }
 
 func TaskFour() {
-	N := 10
+	var N int
+	fmt.Println("Количество горутин:")
+	fmt.Scanf("%d\n", &N)
 
-	chanel := make(chan int)
-	defer close(chanel)
-	go writeToChanel(chanel)
-	go readFromChanel(chanel)
+	workerInput := make(chan int)
 
-	time.Sleep(time.Duration(N) * time.Second)
+	// создаем горутины
+	for i := 0; i < N; i++ {
+		go worker(i, workerInput)
+	}
+
+	// постоянная запись данных в канал из главного потока
+	for {
+		workerInput <- time.Now().Second()
+		time.Sleep(time.Second)
+	}
 }

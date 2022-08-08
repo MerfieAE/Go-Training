@@ -13,8 +13,10 @@ func TaskEight() {
 	switchToOne := false
 	switch switchToOne {
 	case true:
+		// | поразрядная дизъюнкция, Возвращает 1, если хотя бы один из соответствующих разрядов обоих чисел равен 1
 		number |= 1 << numberOfBite
 	default:
+		// ^ поразрядное исключающее ИЛИ. Возвращает 1, если только один из соответствующих разрядов обоих чисел равен 1
 		number &^= 1 << numberOfBite
 	}
 

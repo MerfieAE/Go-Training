@@ -1,37 +1,37 @@
 package tasks
 
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
 /*
 Задача 5. Разработать программу, которая будет последовательно отправлять значения в канал,
  а с другой стороны канала — читать. По истечению N секунд программа должна завершаться
 */
 
-import (
-	"fmt"
-	"log"
-	"time"
-)
+func readFromChanel(chanel chan int) {
 
-var N time.Duration = 7 // Допустим N = 7 секунд
+	for data := range chanel {
+		fmt.Printf("now data is %d\n", data)
+	}
+}
 
-func connectToResource(c chan string) {
-	//Тут time.Sleep() для наглядности
-	time.Sleep(5 * time.Second) // чтобы main получила значение из этой горутины, тут время должно быть меньше, чем в main
-	c <- "Info: connection is created"
+func writeToChanel(chanel chan int) {
+	for {
+		data := rand.Intn(100)
+		chanel <- data
+	}
 }
 
 func TaskFive() {
-	fmt.Println("Main start ...")
+	N := 10
 
-	ch := make(chan string)
+	chanel := make(chan int)
+	defer close(chanel)
+	go writeToChanel(chanel)
+	go readFromChanel(chanel)
 
-	go connectToResource(ch)
-
-	select {
-	case res := <-ch:
-		log.Println(res)
-	case <-time.After(N * time.Second): // А тут время должно быть больше, чем в connectToResource, иначе ошибка.
-		log.Println("Err: connection aborted: timeout")
-	}
-
-	fmt.Println("Main stop ...")
+	time.Sleep(time.Duration(N) * time.Second)
 }
