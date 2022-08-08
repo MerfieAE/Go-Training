@@ -25,4 +25,6 @@ func main() {
 	tasks.TaskSeven()
 	tasks.TaskEight()
 	tasks.TaskNine()
+	tasks.TaskTen()
+	tasks.TaskEleven()
 }
