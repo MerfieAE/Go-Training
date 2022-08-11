@@ -1,4 +1,4 @@
-# Go tasks level 1
+# Go tasks base level
 
 ## Запуск программы
 `go run main.go`
