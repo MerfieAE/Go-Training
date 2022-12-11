@@ -2,20 +2,13 @@ package main
 
 import (
 	advancedtasks "tasks/advancedtasks/develop/dev_01"
-	advancedtasks2 "tasks/advancedtasks/develop/dev_02"
-	advancedtasks3 "tasks/advancedtasks/develop/dev_03"
-	advancedtasks4 "tasks/advancedtasks/develop/dev_04"
-	advancedtasks5 "tasks/advancedtasks/develop/dev_05"
-	advancedtasks6 "tasks/advancedtasks/develop/dev_06"
-	advancedtasks7 "tasks/advancedtasks/develop/dev_07"
-	advancedtasks8 "tasks/advancedtasks/develop/dev_08"
-	advancedtasks9 "tasks/advancedtasks/develop/dev_09"
-	advancedtasks10 "tasks/advancedtasks/develop/dev_10"
+	"tasks/basetasks"
+	"tasks/pattern"
 )
 
 func main() {
 	// --- basetasks functions call --- you should uncomment one of the function
-	//basetasks.TaskOne()
+	basetasks.TaskOne()
 	//basetasks.TaskTwo([]int{1, 2, 3, 4})
 	//basetasks.TaskThree()
 	//basetasks.TaskFive()
@@ -44,13 +37,34 @@ func main() {
 
 	// --- advancedtasks functions call --- you should uncomment one of the function
 	advancedtasks.TaskOne()
-	advancedtasks2.TaskTwo()
-	advancedtasks3.TaskThree()
-	advancedtasks4.TaskFour()
-	advancedtasks5.TaskFive()
-	advancedtasks6.TaskSix()
-	advancedtasks7.TaskSeven()
-	advancedtasks8.TaskEight()
-	advancedtasks9.TaskNine()
-	advancedtasks10.TaskTen()
+	//advancedtasks2.TaskTwo()
+	//advancedtasks3.TaskThree()
+	//advancedtasks4.TaskFour()
+	//advancedtasks5.TaskFive()
+	//advancedtasks6.TaskSix()
+	//advancedtasks7.TaskSeven()
+	//advancedtasks8.TaskEight()
+	//advancedtasks9.TaskNine()
+	//advancedtasks10.TaskTen()
+
+	// --- pattern call --- you should uncomment one of the pattern
+	//01 - Facade
+	facade := pattern.NewStart()
+	facade.Start()
+	//02 - Builder
+	//builder := pattern.NewCarBuilder()
+	//car := builder.Engine(623).Body("BMW").Wheels("Yokohama").Build()
+	//fmt.Println(car)
+	//03 - Visitor
+	//pattern.VisitorPatternStart()
+	//04 - Command
+	//pattern.CommandPatternStart()
+	//05 - Chain of responsibility
+	//pattern.ChainPatternStart()
+	//06 - Factory method
+	//pattern.FactoryMethodPatternStart()
+	//07 - Strategy
+	//pattern.StrategyPatternStart()
+	//08 - State
+	//pattern.StatePatternStart()
 }
