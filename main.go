@@ -2,6 +2,7 @@ package main
 
 import (
 	advancedtasks "tasks/advancedtasks/develop/dev_01"
+	"tasks/algorithms"
 	"tasks/basetasks"
 	"tasks/pattern"
 )
@@ -67,4 +68,12 @@ func main() {
 	//pattern.StrategyPatternStart()
 	//08 - State
 	//pattern.StatePatternStart()
+
+	// --- algorithms call --- you should uncomment one of the algorithm
+	algorithms.AddZero([][]string{{"7", "3", "1"}, {"2", "9"}})
+	//algorithms.BinarySearch([]string{"Akron", "Aksum", "Aktobe", "Aktyubinsk", "Akubra", "Akure"}, "Akubra")
+	//algorithms.DivideStr([]string{"71", "90"})
+	//algorithms.QuickSort([]int{5, 6, 7, 8, 2, 1})
+	//algorithms.RecSum([]int{2, 4, 5}, 3)
+	//algorithms.SelectionSort([]int{5, 6, 7, 8, 2, 1})
 }
